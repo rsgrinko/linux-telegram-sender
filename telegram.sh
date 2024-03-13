@@ -1,4 +1,4 @@
- #!/bin/bash
+#!/bin/bash
 
 # Данный скрипт пренданзачен для отправки stdin потока в Telegram
 #
@@ -13,10 +13,21 @@
 #
 # Author: rsgrinko <rsgrinko@gmail.com>
 # Site: is-stories.ru
-# Github: https://github.com/rsgrinko\
+# Github: https://github.com/rsgrinko
 
 API_TOKEN="insert_here_your_bot_token_please"
 CHAT_ID="insert_here_your_chat_id_please"
+
+trap 'shutdown' SIGINT
+
+sendMessage() {
+    curl -s -X POST https://api.telegram.org/bot$API_TOKEN/sendMessage -d chat_id=$CHAT_ID -d text="$TG_MESSAGE" -d parse_mode=html >> /dev/null
+}
+
+shutdown(){
+    TG_MESSAGE="↓ Warning! Process completed incorrectly  ↓"
+    sendMessage
+}
 
 MESSAGE=$1
 if [ -z "$MESSAGE" ]
@@ -26,7 +37,6 @@ fi
 
 TG_MESSAGE="<b><u>Message from $(hostname)</u></b>
 <b>Date: $(date  "+%d.%m.%Y %H:%M:%S")</b>
-$MESSAGE
-"
+$MESSAGE"
 
-curl -s -X POST https://api.telegram.org/bot$API_TOKEN/sendMessage -d chat_id=$CHAT_ID -d text="$TG_MESSAGE" -d parse_mode=html >> /dev/null
+sendMessage

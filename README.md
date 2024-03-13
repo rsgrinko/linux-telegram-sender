@@ -9,6 +9,6 @@ Download telegram.sh
 - Run `sudo chmod 755 /bin/telegram`
 
 # Use
-For test use command
-`echo test | telegram`
+- First method: `echo test | telegram`
+- Second method: `telegram "Hello Wold!"`
  

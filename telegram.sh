@@ -1,4 +1,4 @@
-#!/bin/bash
+ #!/bin/bash
 
 # Данный скрипт пренданзачен для отправки stdin потока в Telegram
 #
@@ -15,9 +15,8 @@
 # Site: is-stories.ru
 # Github: https://github.com/rsgrinko\
 
-
-API_TOKEN="5357759725:AAEPGfLRaye1ZOPMBGOrBVCMhz4kE_aecME"
-CHAT_ID="412790359"
+API_TOKEN="insert_here_your_bot_token_please"
+CHAT_ID="insert_here_your_chat_id_please"
 
 MESSAGE=$1
 if [ -z "$MESSAGE" ]

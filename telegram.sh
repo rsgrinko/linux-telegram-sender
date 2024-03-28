@@ -12,7 +12,7 @@
 # Если все настроено правильно - вам придет сообщение
 #
 # Author: rsgrinko <rsgrinko@gmail.com>
-# Site: is-stories.ru
+# Site: https://it-stories.ru
 # Github: https://github.com/rsgrinko
 
 API_TOKEN="insert_here_your_bot_token_please"
